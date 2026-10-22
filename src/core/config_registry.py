@@ -1188,6 +1188,32 @@ _FIELD_DEFINITIONS: Dict[str, Dict[str, Any]] = {
         "validation": {"multi_value": True, "delimiter": ","},
         "display_order": 53,
     },
+    "DEEPSEEK_SEARCH_API_KEYS": {
+        "title": "DeepSeek Search API Keys",
+        "description": "Comma-separated DeepSeek API keys for the official Search API. Falls back to the configured LLM DeepSeek key when empty.",
+        "category": "data_source",
+        "data_type": "string",
+        "ui_control": "password",
+        "is_sensitive": True,
+        "is_required": False,
+        "is_editable": True,
+        "default_value": None,
+        "options": [],
+        "validation": {"multi_value": True, "delimiter": ","},
+        "display_order": 54,
+        "help_key": "settings.data_source.DEEPSEEK_SEARCH_API_KEYS",
+        "examples": [
+            "DEEPSEEK_SEARCH_API_KEYS=sk-xxxx",
+            "DEEPSEEK_SEARCH_API_KEYS=sk-key-1,sk-key-2",
+        ],
+        "docs": [
+            {
+                "label": "完整指南：搜索服务配置",
+                "href": "https://github.com/ZhuLinsen/daily_stock_analysis/blob/main/docs/full-guide.md#搜索服务配置",
+            },
+        ],
+        "warning_codes": ["secret_value", "comma_separated_keys"],
+    },
     "SEARXNG_BASE_URLS": {
         "title": "SearXNG Base URLs",
         "description": "Comma-separated SearXNG instance URLs (self-hosted, no quota). Enable format: json in settings.yml.",
@@ -4838,6 +4864,14 @@ _FIELD_HELP_METADATA: Dict[str, Dict[str, Any]] = {
         "help_key": "settings.data_source.search_api_keys",
         "examples": [
             "MINIMAX_API_KEYS=minimax_key_1,minimax_key_2",
+        ],
+        "docs": _DOC_FULL_GUIDE_SEARCH,
+        "warning_codes": ["secret_value", "comma_separated_keys"],
+    },
+    "DEEPSEEK_SEARCH_API_KEYS": {
+        "help_key": "settings.data_source.DEEPSEEK_SEARCH_API_KEYS",
+        "examples": [
+            "DEEPSEEK_SEARCH_API_KEYS=sk-key_1,sk-key_2",
         ],
         "docs": _DOC_FULL_GUIDE_SEARCH,
         "warning_codes": ["secret_value", "comma_separated_keys"],
