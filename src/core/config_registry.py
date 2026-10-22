@@ -1190,7 +1190,7 @@ _FIELD_DEFINITIONS: Dict[str, Dict[str, Any]] = {
     },
     "DEEPSEEK_SEARCH_API_KEYS": {
         "title": "DeepSeek Search API Keys",
-        "description": "Comma-separated DeepSeek API keys for the official Search API. Falls back to the configured LLM DeepSeek key when empty.",
+        "description": "Comma-separated DeepSeek API keys for the official Search API. DeepSeek Search is disabled when this is empty (the LLM key is not reused).",
         "category": "data_source",
         "data_type": "string",
         "ui_control": "password",

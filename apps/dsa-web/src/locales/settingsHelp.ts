@@ -410,7 +410,7 @@ const settingsHelpZhCN: SettingsHelpMap = {
   'settings.data_source.DEEPSEEK_SEARCH_API_KEYS': {
     title: 'DeepSeek 搜索 API Key',
     summary: '配置 DeepSeek 官方 Search API 的密钥，用于新闻与资料检索。',
-    usage: '多个 Key 使用英文逗号分隔；留空时自动复用已配置的 LLM DeepSeek Key。',
+    usage: '多个 Key 使用英文逗号分隔；留空时不启用 DeepSeek Search，不会复用 LLM Key。',
     valueNotes: ['DeepSeek Search 按成功请求计费，约 5 元/1000 次（返回结果才计费）。', '检索会自动附带日期范围，并优先使用带日期的摘要。'],
     impact: ['影响新闻检索的覆盖度与质量；在搜索源顺序中优先于其他引擎。'],
     notes: ['需要该 DeepSeek 账户已开通 Search 权限；建议与 LLM Key 分开管理额度。'],
@@ -1662,7 +1662,7 @@ const settingsHelpEnUS: SettingsHelpMap = {
   'settings.data_source.DEEPSEEK_SEARCH_API_KEYS': {
     title: 'DeepSeek Search API Keys',
     summary: 'Configures DeepSeek API keys for the official Search API.',
-    usage: 'Use English commas for multiple keys. When empty, the configured LLM DeepSeek key is reused.',
+    usage: 'Use English commas for multiple keys. When empty, DeepSeek Search is disabled and the LLM key is not reused.',
     valueNotes: ['DeepSeek Search bills successful requests (~CNY 5 per 1,000 requests with results).', 'Searches add a date range and prefer dated summaries.'],
     impact: ['Affects news coverage and quality; it takes precedence over other search engines in the search order.'],
     notes: ['The DeepSeek account needs Search access. Consider using a separate key to isolate quota.'],

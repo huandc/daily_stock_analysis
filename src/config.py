@@ -1597,9 +1597,9 @@ class Config:
             if _single_deepseek:
                 deepseek_api_keys = [_single_deepseek]
 
-        # DeepSeek Search API keys: DEEPSEEK_SEARCH_API_KEYS > DEEPSEEK_SEARCH_API_KEY
-        # > DEEPSEEK_API_KEYS > LLM 渠道 key（LLM_DEEPSEEK_API_KEYS / LLM_DEEPSEEK_API_KEY）。
-        # 绝大多数场景直接复用 LLM 的 DeepSeek key，无需额外配置。
+        # DeepSeek Search API keys: 只认专用 Key（DEEPSEEK_SEARCH_API_KEYS > DEEPSEEK_SEARCH_API_KEY）。
+        # 未单独配置时不启用 DeepSeek Search，避免自动开启按成功请求计费的搜索服务；
+        # 如需启用，填入专用 Key（与 LLM Key 相同也可，但需显式配置）。
         _deepseek_search_keys_raw = os.getenv('DEEPSEEK_SEARCH_API_KEYS', '')
         deepseek_search_api_keys = [
             k.strip() for k in _deepseek_search_keys_raw.split(',') if k.strip()
@@ -1608,16 +1608,6 @@ class Config:
             _single_search_deepseek = os.getenv('DEEPSEEK_SEARCH_API_KEY', '').strip()
             if _single_search_deepseek:
                 deepseek_search_api_keys = [_single_search_deepseek]
-        if not deepseek_search_api_keys:
-            deepseek_search_api_keys = list(deepseek_api_keys)
-        if not deepseek_search_api_keys:
-            _llm_deepseek_raw = (
-                os.getenv('LLM_DEEPSEEK_API_KEYS', '')
-                or os.getenv('LLM_DEEPSEEK_API_KEY', '')
-            )
-            deepseek_search_api_keys = [
-                k.strip() for k in _llm_deepseek_raw.split(',') if k.strip()
-            ]
 
         # Anspire Open shares the same key as Anspire Search and exposes an
         # OpenAI-compatible LLM gateway.  When no other OpenAI-compatible key is

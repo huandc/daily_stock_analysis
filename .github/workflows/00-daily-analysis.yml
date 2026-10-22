@@ -518,7 +518,7 @@ jobs:
           echo "  SerpAPI Keys: $([ -n "$SERPAPI_API_KEYS" ] && echo '✅ 已配置' || echo '⚪ 未配置')"
           echo "  MiniMax API Keys: $([ -n "$MINIMAX_API_KEYS" ] && echo '✅ 已配置' || echo '⚪ 未配置')"
           echo "  Brave API Keys: $([ -n "$BRAVE_API_KEYS" ] && echo '✅ 已配置' || echo '⚪ 未配置')"
-          echo "  DeepSeek Search Keys: $([ -n "$DEEPSEEK_SEARCH_API_KEYS" ] && echo '✅ 已配置' || echo '⚪ 未配置（回退 LLM DeepSeek Key）')"
+          echo "  DeepSeek Search Keys: $([ -n "$DEEPSEEK_SEARCH_API_KEYS" ] && echo '✅ 已配置' || echo '⚪ 未配置（DeepSeek Search 不启用）')"
           echo "  SearXNG Base URLs: $([ -n "$SEARXNG_BASE_URLS" ] && echo '✅ 已配置' || echo '⚪ 未配置')"
           case "${SEARXNG_PUBLIC_INSTANCES_ENABLED,,}" in
             0|false|no|off)
